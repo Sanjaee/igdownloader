@@ -1,17 +1,31 @@
-.instagram-downloader-container {
-  text-align: center;
+.login-container {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: #f8f8f8;
   font-family: arial;
+  text-align: center;
 }
-
+.login-form {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
 label {
   display: block;
   margin-bottom: 10px;
 }
-
+label {
+  margin-top: 50px;
+  font-weight: bold;
+  font-size: 20px;
+}
 input {
   margin-top: 10px;
   width: 90%;
-  padding: 8px;
+  padding: 15px;
   margin-bottom: 10px;
   border-radius: 5px;
 }
@@ -46,7 +60,19 @@ button:hover {
 .result-item {
   margin-bottom: 10px;
 }
-
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+img {
+  width: 34px;
+  height: 34px;
+  margin-right: 10px;
+}
+h4 {
+  margin-top: 30px;
+}
 @media (max-width: 600px) {
   input {
     width: 60%;
