@@ -36,50 +36,64 @@ const InstagramDownloader = () => {
     setInputValue(inputValue);
   };
 
+  const handleDownload = () => {
+    // Clear previous results when a new URL is entered
+    setResult([]);
+    fetchData(inputValue);
+  };
+
   return (
-    <div className="login-container">
-      <div className="login-form">
-        <h1>Instagram Downloader</h1>
-        <label htmlFor="instagramUrl">Instagram URL:</label>
-        <input
-          type="text"
-          id="instagramUrl"
-          placeholder="https://www.instagram.com/p/CzJ4dY9vnZw/?utm_source=ig_web_copy_link"
-          value={inputValue}
-          onChange={handleInputChange}
-        />
+    <div className="instagram-downloader-container">
+      <h2>Instagram Downloader</h2>
+      <p>Masukan URL Instagram di bawah:</p>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={handleInputChange}
+        placeholder="Enter Instagram URL"
+        className="instagram-input"
+      />
+      <button onClick={handleDownload} className="instagram-button">
+        Generate
+      </button>
 
-        <button onClick={() => fetchData(inputValue)}>Generate</button>
-
-        {loading && <p>Loading...</p>}
-
-        <div className="result-container">
-          {result.map((url, index) => (
-            <div key={index} className="result-item">
-              <p>Hasil: </p>
-              <p>{index}:</p>
-              <a href={url} target="_blank" rel="noopener noreferrer">
-                <button
-                  className="download-button"
-                  onClick={() => (window.location.href = url)}
-                  download
-                >
-                  Download
-                </button>
-              </a>
-            </div>
-          ))}
-        </div>
-        <h4>Support Me:</h4>
-        <div className="social-icons">
-          <a href="https://www.instagram.com/ahmdafriz4/">
-            <img src="instagram.png" alt="Instagram" />
-          </a>
-          <a href="https://www.linkedin.com/in/ahmad-afriza-ez4-ab9173276/">
-            <img src="linkedin.png" alt="LinkedIn" />
-          </a>
-        </div>
+      <p>Support Me:</p>
+      <div class="social-icons">
+        <a
+          href="https://www.linkedin.com/in/ahmad-afriza-ez4-ab9173276/"
+          target="_blank"
+        >
+          <img className="icon" src="linkedin.png" alt="LinkedIn Icon" />
+        </a>
+        <a href="https://www.instagram.com/ahmdafriz4/" target="_blank">
+          <img className="icon" src="instagram.png" alt="Instagram Icon" />
+        </a>
       </div>
+
+      {loading && <p>Loading...</p>}
+
+      {result.map((item, index) => (
+        <div key={index} className="result-item">
+          <p className="result-title">{item.title}</p>
+          {item.type === "video" && (
+            <video controls width="250" height="150">
+              <source src={item.url} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          )}
+          {item.type !== "video" && (
+            <img src={item.thumb} alt={item.title} className="result-image" />
+          )}
+          <a
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="download-link"
+          >
+            <button className="download-button">Download Item</button>
+          </a>
+        </div>
+      ))}
     </div>
   );
 };

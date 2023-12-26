@@ -1,84 +1,124 @@
-.login-container {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  background-color: #f8f8f8;
+div {
   font-family: arial;
-  text-align: center;
 }
-.login-form {
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-label {
-  display: block;
-  margin-bottom: 10px;
-}
-label {
-  margin-top: 50px;
+p {
   font-weight: bold;
-  font-size: 20px;
 }
-input {
-  margin-top: 10px;
-  width: 90%;
-  padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
-
-button {
-  background-color: #4caf50;
-  color: white;
-  padding: 15px 25px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-top: 10px;
-  margin-bottom: 30px;
+.instagram-downloader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 
-.download-button {
-  background-color: #3498db;
-  color: white;
+.instagram-input {
+  width: 100%;
   padding: 10px;
-  border: none;
-  cursor: pointer;
+  margin-bottom: 10px;
 }
 
-button:hover {
-  background-color: #45a049;
+.instagram-button {
+  background: #393e46;
+  color: #f1f1f1;
+  border-radius: 8px;
+  border: 0;
+  border-bottom: 5px solid #222831;
+  border-left: 1px solid #222831;
+  padding: 8px 24px;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  top: 0;
+  margin-top: 30px;
+}
+.instagram-button:active {
+  top: 2px;
+  border-bottom: 3px solid #eeeeee;
+  border-left: 1px solid #eeeeee;
 }
 
 .result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 20px;
+  text-align: center;
 }
 
 .result-item {
-  margin-bottom: 10px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
 }
+
 .social-icons {
   display: flex;
   justify-content: center;
-  margin-top: 5px;
+  margin-top: 10p;
 }
-img {
+
+.icon {
   width: 34px;
   height: 34px;
-  margin-right: 10px;
+  margin-right: 20px;
 }
-h4 {
-  margin-top: 30px;
+
+.result-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
-@media (max-width: 600px) {
-  input {
-    width: 60%;
+
+.result-image {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.download-link {
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.download-button {
+  background-color: #2196f3;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  margin-top: 20px;
+}
+@media screen and (min-width: 768px) {
+  .instagram-downloader-container {
+    max-width: 1000px;
+    padding: 50px;
   }
 
-  button {
-    width: 60%;
+  .instagram-input {
+    font-size: 1.5em;
+  }
+
+  .instagram-button {
+    font-size: 1.5em;
+  }
+
+  .result-title {
+    font-size: 24px;
+  }
+
+  .download-button {
+    font-size: 1.5em;
   }
 }
